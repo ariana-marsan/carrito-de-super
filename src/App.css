@@ -30,6 +30,12 @@ li{
   margin: 7px;
   text-align: center;
 }
+li img{
+  width: 80%;
+  height: 80%px;
+  object-fit: cover;
+  border-radius: 5px;
+}
 li:hover{
   background-color: #2229;
   scale: 1.05;
@@ -51,4 +57,44 @@ li button{
 li button:hover{
   background-color: rgb(65, 114, 219);
   border: 1px solid rgba(1, 25, 61, 0.467);
+}
+form{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+.categoria{
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.categoria select{
+  padding: .5rem;
+  border: 1px solid #ccc;
+  background-color: #5559;
+  border-radius: .3rem;
+}
+.price{
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.price input{
+  border: 1px solid #ccc;
+  border-radius: 5rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  background-color: #5559;
+  padding: .5rem
+}
+.price button{
+  border: 1px solid #ccc;
+  border-radius: 5rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  background-color: #5559;
+  padding: .5rem
 }
