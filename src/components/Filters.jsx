@@ -1,5 +1,24 @@
 
-export function Filter() {
+import { useState } from 'react';
+
+export function Filter({ onChange }) {
+    const [minPrice, setMinPrice] = useState(0);
+
+    const handleChange = (e) => {
+        setMinPrice(e.target.value);
+        onChange(prevState=>({
+            ...prevState,
+            minPrice: e.target.value
+        })
+        )
+        console.log(e.target.value);
+        console.log(minPrice);
+    }
+    // const handleClick = (e) => {
+    //     e.preventDefault();
+    //     setMinPrice(minPrice);
+    // }
+
     return (
       <form className="form">
         <section className="categoria">
@@ -14,8 +33,9 @@ export function Filter() {
         <section className="price">
         <label>Precio mínimo</label>
         <div>
-        <input type="number" className="minPrice" />
-        <button type="submit">Aplicar</button>
+        <input type="number" onChange={handleChange} className="minPrice" />
+        <button /* onClick={handleClick}*/type="submit">Aplicar</button>
+        <span>{minPrice}</span>
         </div>
         </section>
       </form>)
