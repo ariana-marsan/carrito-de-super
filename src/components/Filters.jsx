@@ -1,41 +1,43 @@
 
-import { useState } from 'react';
+import { useState, useId } from 'react';
 
 export function Filter({ onChange }) {
     const [minPrice, setMinPrice] = useState(0);
+    const [category, setCategory] = useState("all")
+    const minPriceId = useId()
+    const categoryId = useId()
 
-    const handleChange = (e) => {
+    const handleChangeMinPrice = (e) => {
         setMinPrice(e.target.value);
         onChange(prevState=>({
             ...prevState,
             minPrice: e.target.value
         })
         )
-        console.log(e.target.value);
-        console.log(minPrice);
     }
-    // const handleClick = (e) => {
-    //     e.preventDefault();
-    //     setMinPrice(minPrice);
-    // }
 
+    const handleChangeCategory = (e) =>{
+        setCategory(e.target.value)
+        onChange(prevState=>({
+            ...prevState,
+            category: e.target.value
+        }))
+    }
+    
     return (
       <form className="form">
         <section className="categoria">
-        <label>Categoría</label>
-        <select className="category">
+        <label id={categoryId}>Categoría</label>
+        <select className="category" onChange={handleChangeCategory}>
           <option value="all">Todos</option>
-          <option value="phones">Celulares</option>
+          <option value="smartphones">Celulares</option>
           <option value="laptops">Laptops</option>
-          <option value="cameras">Cámaras</option>
         </select>
         </section>
         <section className="price">
         <label>Precio mínimo</label>
         <div>
-        <input type="number" onChange={handleChange} className="minPrice" />
-        <button /* onClick={handleClick}*/type="submit">Aplicar</button>
-        <span>{minPrice}</span>
+        <input id={minPriceId} type="number" onChange={handleChangeMinPrice} className="minPrice" />
         </div>
         </section>
       </form>)
