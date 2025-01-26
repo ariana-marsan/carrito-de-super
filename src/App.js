@@ -3,28 +3,17 @@ import './App.css';
 import { Products } from './hooks/Products';
 import { useState } from 'react';
 import { Header } from './components/Header';
+import { useFilters } from './hooks/useFilters';
 
 function App() {
   const [products] = useState(packageJSON);
-  const [filters, setFilters] = useState({
-    category: 'all',
-    minPrice: 0,
-  });
+  const { handleFilterChange, setFilters } = useFilters();
 
-  const handleFilterChange = (products) => {
-
-    return products.products.filter((product) => {
-      return(
-        product.price >= filters.minPrice &&
-        (filters.category === 'all' || product.category === filters.category)
-      )
-    })
-  }
   const filteredProducts = handleFilterChange(products);
 
   return (
     <>
-    <Header changeFilters={ setFilters }/>
+    <Header />
     <Products products={filteredProducts} />
     </>
   );
