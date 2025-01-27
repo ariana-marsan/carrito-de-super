@@ -47,6 +47,11 @@ li p{
   padding: 15px;
   padding-bottom: 5px;
 }
+li span{
+  padding: 15px;
+}li strong{
+  padding: 15px;
+}
 li button{
   padding: 10px;
   margin: 15px;
@@ -85,4 +90,31 @@ form{
   border-radius: 5rem;
   background-color: #5559;
   padding: .5rem
+}
+.cartIcon{
+  text-align: center;
+}
+.cart{
+  display: none;
+  text-align: center;
+}
+.cart-button{
+  display: grid;
+  margin: auto;
+  text-align: center;
+  
+  background-color: rgb(40, 94, 212);
+  border: 1px solid rgba(1, 39, 95, 0.467);
+  border-radius: 10rem;
+  padding: .5rem;
+  width: fit-content;
+  height: fit-content;
+}
+.cart-button:hover{
+  background-color: rgb(65, 114, 219);
+  border: 1px solid rgba(1, 25, 61, 0.467);
+  scale: 1.05;
+}
+.cart-button ~ input:checked ~ .cart{
+  display: block;
 }
